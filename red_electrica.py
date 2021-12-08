@@ -39,7 +39,8 @@ def Precio_red_electrica():
 			d1 = pd.DataFrame({"€/kWh": precio, "Fecha" : fecha.strftime('%d/%m/%y'), "Hora inicio" : hora_inicio, "Hora fin" : hora_fin}, index = [0])
 			d = d.append(d1)
 		
-		return last_update, d, d[d['€/kWh'] == min(d['€/kWh'])]
+		#return last_update, d, d[d['€/kWh'] == min(d['€/kWh'])]
+		return last_update, d, d[d['€/kWh'] <= np.median(d['€/kWh'])].sort_values('€/kWh')
 		#return d
 
 	else:
