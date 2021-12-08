@@ -34,6 +34,7 @@ async def on_ready():
 	minimo_formateado = minimo.to_string(justify='left',index=False)
 
 	#Envío de datos mínimos ordenados por precio.
+	#El triple acento grave da formato al mensaje en Discord para que los datos se asemejen a una tabla.
 	await canal_min.send(f'```Precios mínimos por hora.\n{minimo_formateado}```')
 
 	#Envío de datos diarios.
