@@ -18,11 +18,16 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-	print(f'We have logged in as {client.user}')
+	#Canales que recibirán los mensajes
 	canal_min = client.get_channel(int(min_channel))
 	canal_total = client.get_channel(int(total_channel))
 	
-
+	#Return de la API de REE.es
+	'''
+	lupdate: last_update: hora de carga de los datos por parte de REE
+	datos: conjunto completo de datos de precios PVPC (€/MWh)
+	minimo: slice del minimo
+	'''
 	lupdate, datos, minimo = Precio_red_electrica()
 
 	#Envío de mensajes de precios
